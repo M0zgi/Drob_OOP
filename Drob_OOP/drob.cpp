@@ -1,8 +1,24 @@
 #include"Header.h"
 
+Drob::Drob()
+{
+	ch = 1;
+	zn = 1;
+}
+
+Drob::Drob(int ch0, int zn0)
+{
+	ch = ch0;
+	zn = zn0;
+}
+
 void Drob::print()
 {
 
+}
+
+Drob::~Drob()
+{
 }
 
 int Drob::GetCh()
