@@ -140,7 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="drob.cpp" />
-    <ClCompile Include="function.cpp" />
+    <ClCompile Include="menu.cpp" />
     <ClCompile Include="prog.cpp" />
   </ItemGroup>
   <ItemGroup>
