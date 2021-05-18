@@ -39,7 +39,7 @@ void MenuFun1()
 	
 	Drob::HandInit();
 
-	Drob::Sum(d1, d2);
+	Drob::Sum(d1, d2); - НЕ МОГУ ВЫЗВАТЬ ФУНКЦИЮ. Не могу передать параметры в MenuFun1()
 
 	_getch(); // we can use getch like pause (whitout assigning the return value to a variable).
 	system("cls");
