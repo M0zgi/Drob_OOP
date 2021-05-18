@@ -2,6 +2,7 @@
 
 
 
+
 int main ()
 {
 
@@ -9,7 +10,7 @@ int main ()
 	SetConsoleOutputCP(1251);
 
 	
-
+	
 
 		string* MenuItems(); 
 

@@ -7,6 +7,8 @@
 
 using namespace std;
 
+
+
 class Drob
 {
 private:
@@ -43,9 +45,10 @@ public:
 	int GetCh();
 	int GetZn();
 	//void SetCh(int ch1);
-	//void SetZn(int zn1);
+	//void SetZn(int zn1);	
 
-	Drob Sum(Drob d1, Drob d2);
+
+	static Drob Sum(Drob d1, Drob d2);
 	Drob Diff(Drob d1, Drob d2);
 	Drob Mult(Drob d1, Drob d2);
 	Drob Div(Drob d1, Drob d2);

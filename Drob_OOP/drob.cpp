@@ -34,7 +34,7 @@ void Drob::HandInit()
 	cout << "---\n";
 	cout << " ";
 	cin >> d1.zn;
-
+	
 	cout << "Введите числитель и знаменатель второй дроби\n";
 
 	cout << " ";
@@ -45,8 +45,7 @@ void Drob::HandInit()
 
 	cout << endl << endl;
 
-	cout << d1.ch << d1.zn << endl;
-	cout << d2.ch << d2.zn << endl;
+	
 }
 
 //Drob::~Drob()
@@ -65,7 +64,12 @@ int Drob::GetZn()
 
 Drob Drob::Sum(Drob d1, Drob d2)
 {
-	return Drob();
+	
+
+	cout << d1.ch << d1.zn << endl;
+	cout << d2.ch << d2.zn << endl;
+
+	return  d1;
 }
 
 Drob Drob::Diff(Drob d1, Drob d2)
