@@ -42,6 +42,11 @@ void Drob::HandInit()
 	cout << "---\n";
 	cout << " ";
 	cin >> d2.zn;
+
+	cout << endl << endl;
+
+	cout << d1.ch << d1.zn << endl;
+	cout << d2.ch << d2.zn << endl;
 }
 
 //Drob::~Drob()

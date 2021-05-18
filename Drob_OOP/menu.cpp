@@ -2,6 +2,7 @@
 
 
 
+
 /*******************************************
  * Menu using the arrow keys from keyboard *
  *      By: Osama Farah . Amman-Jordan     *
@@ -36,8 +37,7 @@ void MenuFun1()
 	system("cls"); //clear the screen.
 	gotoxy(25, 10);
 
-	
-	
+	Drob::HandInit();	
 
 	_getch(); // we can use getch like pause (whitout assigning the return value to a variable).
 	system("cls");

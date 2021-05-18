@@ -35,7 +35,7 @@ public:
 	void Init(int ch0, int zn0);
 
 	//ручной ввод значений дроби
-	void HandInit();
+	static void HandInit();
 
 	//деструктор
 	//~Drob();
