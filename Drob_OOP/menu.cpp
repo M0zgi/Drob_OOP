@@ -37,16 +37,22 @@ void gotoxy(int xpos, int ypos)  // just take this function as it is.
 void MenuFun1()
 {
 	system("cls"); //clear the screen.
-	gotoxy(25, 10);
 	
+	gotoxy(25, 9);
+	cout << "Сложение дробей\n";
+
+	gotoxy(25, 10);	
 	cout << "Введите числитель и знаменатель первой дроби\n";
 	
 	d1.HandInit();
+	
 	gotoxy(25, 15);
 	cout << "Введите числитель и знаменатель второй дроби\n";
+	
 	d2.HandInit();
 	
 	d = d.Sum(d1, d2);
+	
 	gotoxy(25, 19);
 	
 	d.print();
@@ -67,8 +73,22 @@ void MenuFun2()
 void MenuFun3()
 {
 	system("cls");
+	gotoxy(25, 9);
+	cout << "Умножение дробей\n";
 	gotoxy(25, 10);
-	cout << "You have selected menu option (#3)" << endl;
+
+	cout << "Введите числитель и знаменатель первой дроби\n";
+
+	d1.HandInit();
+	gotoxy(25, 15);
+	cout << "Введите числитель и знаменатель второй дроби\n";
+	d2.HandInit();
+
+	d = d.Mult(d1, d2);
+	gotoxy(25, 19);
+
+	d.print();
+
 	_getch();
 	system("cls");
 }
@@ -76,8 +96,22 @@ void MenuFun3()
 void MenuFun4()
 {
 	system("cls");
+	gotoxy(25, 9);
+	cout << "Деление дробей\n";
 	gotoxy(25, 10);
-	cout << "You have selected menu option (#4)" << endl;
+
+	cout << "Введите числитель и знаменатель первой дроби\n";
+
+	d1.HandInit();
+	gotoxy(25, 15);
+	cout << "Введите числитель и знаменатель второй дроби\n";
+	d2.HandInit();
+
+	d = d.Div(d1, d2);
+	gotoxy(25, 19);
+
+	d.print();
+
 	_getch();
 	system("cls");
 }

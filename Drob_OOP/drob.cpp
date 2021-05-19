@@ -1,8 +1,6 @@
 ﻿#include"Header.h"
 
 
-
-
 void Drob::NOD()
 {
 	
@@ -48,8 +46,7 @@ void Drob::NOD()
 		
 		ch /= a.ch;
 		zn /= a.zn;
-		a.ch *= -1;
-		
+		a.ch *= -1;		
 	}
 
 	//поиск и выделение целой части дроби для отрицательной дроби
@@ -62,9 +59,7 @@ void Drob::NOD()
 			ch = ch % zn;
 		}
 
-		ch *= -1;
-
-		
+		ch *= -1;		
 	}
 	//поиск и выделение целой части дроби для положительной дроби
 
@@ -76,8 +71,6 @@ void Drob::NOD()
 			ch = ch % zn;
 		}
 	}
-
-
 }
 
 Drob::Drob(int ch0, int zn0)
@@ -88,9 +81,6 @@ Drob::Drob(int ch0, int zn0)
 
 void Drob::print()
 {
-
-	
-
 	cout << "--------------------------------------------" << endl;
 
 	if (chast > 0 && ch > 0)
@@ -98,7 +88,6 @@ void Drob::print()
 		cout << "                                            " << ch << endl;
 		cout << "                                  Ответ: " << chast << " ---\n";
 		cout << "                                            " << zn;
-
 	}
 
 	else if (chast > 0 && ch < 0)
@@ -107,13 +96,33 @@ void Drob::print()
 		cout << "                                 Ответ: - " << chast << " ---\n";
 		cout << "                                             " << zn;
 	}
+
+	else if (chast == 0)
+	{
+		cout << "                                            " << ch << endl;
+		cout << "                                  Ответ: " << chast << " ---\n";
+		cout << "                                            " << zn;
+	}
+		
+
+	else if (ch == 0 && chast > 0)
+	{
+		cout << "                                  Ответ:  " << chast;
+	}
+		
+	else if (ch == 0)
+	{
+		cout << "                                            " << ch << endl;
+		cout << "                                  Ответ:  " << " ---  = 0\n";
+		cout << "                                            " << zn;
+	}
+
 	else if (ch < 0)
 	{
 		cout << "                                            " << ch - (ch * 2) << endl;
 		cout << "                                  Ответ: -"  << " ---\n";
 		cout << "                                            " << zn;
 	}
-		
 		
 	else if (ch != 0 && zn != 0)
 	{
@@ -122,9 +131,6 @@ void Drob::print()
 		cout << "                                    Ответ: ---\n";
 		cout << "                                            " << zn;
 	}
-
-	
-
 }
 
 void Drob::Init(int ch0, int zn0)
@@ -141,10 +147,6 @@ void Drob::HandInit()
 	cout << "                                            ";
 	cin >> zn;	
 }
-
-//Drob::~Drob()
-//{
-//}
 
 int Drob::GetCh()
 {
@@ -163,9 +165,22 @@ Drob Drob::Sum(Drob d1, Drob d2)
 	d.ch = d1.ch * d2.zn + d1.zn * d2.ch;
 	d.zn = d1.zn * d2.zn;
 
-	d.NOD();
+	bool checkzn = d.CheckZero();
 
-	return d;
+	if (checkzn)
+	{
+		d.NOD();
+		return d;
+	}
+
+	else
+	{
+		gotoxy(25, 19);
+		cout << "На ноль делить нельзя";
+		system("pause>null");
+		system("cls");
+		MenuFun1();
+	}
 }
 
 Drob Drob::Diff(Drob d1, Drob d2)
@@ -175,12 +190,50 @@ Drob Drob::Diff(Drob d1, Drob d2)
 
 Drob Drob::Mult(Drob d1, Drob d2)
 {
-	return Drob();
+	Drob d;
+	d.ch = d1.ch * d2.ch;
+	d.zn = d1.zn * d2.zn;
+	bool checkzn = d.CheckZero();
+
+	if (checkzn)
+	{
+		d.NOD();
+		return d;
+	}
+
+	else
+	{
+		gotoxy(25, 19);
+		cout << "На ноль делить нельзя";
+		system("pause>null");
+		system("cls");
+		MenuFun3();
+	}
 }
 
 Drob Drob::Div(Drob d1, Drob d2)
 {
-	return Drob();
+	Drob d;
+	d.ch = d1.ch * d2.zn;
+	d.zn = d1.zn * d2.ch;	
+
+	bool checkzn = d.CheckZero();
+
+	if (checkzn)
+	{
+		d.NOD();
+		return d;
+	}
+	
+	else
+	{
+		gotoxy(25, 19);
+		cout << "На ноль делить нельзя";
+		system("pause>null");
+		system("cls");
+		MenuFun4();		
+	}	
+	
 }
 
 //void Drob::SetCh(int ch1)

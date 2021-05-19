@@ -19,6 +19,17 @@ private:
 	//ф-кция сокращения дроби
 	void NOD();
 
+	//ф-кция проверки знаменателя на 0
+
+	bool CheckZero()
+	{
+		if (zn == 0)
+			return false;
+		
+		if (zn != 0)
+			return true;
+	}
+
 public:
 
 	//значения дроби по умолчанию, если не заданны оба значения
@@ -39,14 +50,8 @@ public:
 	//ручной ввод значений дроби
 	void HandInit();
 
-	//деструктор
-	//~Drob();
-
 	int GetCh();
 	int GetZn();
-	//void SetCh(int ch1);
-	//void SetZn(int zn1);	
-
 
 	Drob Sum(Drob d1, Drob d2);
 	Drob Diff(Drob d1, Drob d2);
@@ -54,10 +59,7 @@ public:
 	Drob Div(Drob d1, Drob d2);
 };
 
-
-
 //-----------------------------------------------------------------------------------------------
-
 
 void gotoxy(int, int);
 
@@ -69,6 +71,3 @@ void MenuFun4();
 
 void ExitOption(); 
 //-----------------------------------------------------------------------------------------------
-
-//inline Drob d1;
-//inline Drob d2;
