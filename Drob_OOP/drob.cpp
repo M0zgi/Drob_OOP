@@ -177,15 +177,162 @@ Drob Drob::Sum(Drob d1, Drob d2)
 	{
 		gotoxy(25, 19);
 		cout << "На ноль делить нельзя";
-		system("pause>null");
+		Sleep(700);
 		system("cls");
+		
 		MenuFun1();
 	}
 }
 
 Drob Drob::Diff(Drob d1, Drob d2)
 {
-	return Drob();
+	Drob c;
+
+	//Вычитание дробей с одинаковыми знаменателями
+
+	if (d1.zn == d2.zn && d1.ch != d2.ch)
+	{
+		c.ch = d1.ch - d2.ch;
+		c.zn = d1.zn;
+		bool checkzn = c.CheckZero();
+
+		if (checkzn)
+		{
+			c.NOD();
+			return c;
+		}
+
+		else
+		{
+			gotoxy(25, 19);
+			cout << "На ноль делить нельзя";
+			Sleep(700);
+			system("cls");
+			MenuFun2();
+		}
+	}
+
+	//вычитания смешанных чисел с большим числителем первого числа и большим знаменателем
+	else if (d1.zn > d2.zn && d1.ch > d2.ch)
+	{
+		//нужно привести к общему знаменателю дробные части
+		//рассчитываем наименьшее общее кратное (НОК)
+		//НОК = a.zn * b.zn / НОД (m, n)
+		Drob m, n;
+		m.zn = d1.zn;
+		n.zn = d2.zn;
+
+		while (m.zn != n.zn)
+		{
+			if (m.zn > n.zn)
+			{
+				int tmp = m.zn;
+				m.zn = n.zn;
+				n.zn = tmp;
+			}
+			n.zn = n.zn - m.zn;
+		}
+
+		c.zn = d1.zn * d2.zn / n.zn;
+		c.ch = d1.ch - d2.ch;
+
+		bool checkzn = c.CheckZero();
+
+		if (checkzn)
+		{
+			c.NOD();
+			return c;
+		}
+
+		else
+		{
+			gotoxy(25, 19);
+			cout << "На ноль делить нельзя";
+			Sleep(700);
+			system("cls");
+			MenuFun2();
+		}
+	}
+
+	//вычитания дроби с одинаковым числителем и разным знаменателем
+	else if (d1.ch == d2.ch && d1.zn != d2.zn)
+	{
+		d1.ch *= d2.zn;
+		d2.ch *= d1.zn;
+		c.ch = d1.ch - d2.ch;
+		c.zn = d1.zn * d2.zn;
+
+		bool checkzn = c.CheckZero();
+
+		if (checkzn)
+		{
+			c.NOD();
+			return c;
+		}
+
+		else
+		{
+			gotoxy(25, 19);
+			cout << "На ноль делить нельзя";
+			Sleep(700);
+			system("cls");
+			MenuFun2();
+		}
+	}
+
+	//Вычитание дробей с разными знаменателями и разными числителями
+
+	else if (d1.zn != d2.zn && d1.ch < d2.ch || d1.zn < d2.zn && d1.ch > d2.ch || d1.zn > d2.zn && d1.ch > d2.ch)
+	{
+		d1.ch *= d2.zn;
+		d2.ch *= d1.zn;
+		int tmp;
+		tmp = d1.zn;
+		d1.zn *= d2.zn;
+		d2.zn *= tmp;
+		c.ch = d1.ch - d2.ch;
+		c.zn = d1.zn;
+		bool checkzn = c.CheckZero();
+
+		if (checkzn)
+		{
+			c.NOD();
+			return c;
+		}
+
+		else
+		{
+			gotoxy(25, 19);
+			cout << "На ноль делить нельзя";
+			Sleep(700);
+			system("cls");
+			MenuFun2();
+		}
+	}
+
+	//Вычитание дробей с одинаковыми знаменателями и числителями, ответ будет 0
+	else if (d1.zn == d2.zn && d1.ch == d2.ch)
+	{
+		c.zn = d2.zn;
+		c.ch = d1.ch - d2.ch;
+		c.chast = (d1.ch - d2.ch) / d2.zn;
+		bool checkzn = c.CheckZero();
+
+		if (checkzn)
+		{
+			c.NOD();
+			return c;
+		}
+
+		else
+		{
+			gotoxy(25, 19);
+			cout << "На ноль делить нельзя";
+			Sleep(700);
+			system("cls");
+			MenuFun2();
+		}
+	}
 }
 
 Drob Drob::Mult(Drob d1, Drob d2)
@@ -205,7 +352,7 @@ Drob Drob::Mult(Drob d1, Drob d2)
 	{
 		gotoxy(25, 19);
 		cout << "На ноль делить нельзя";
-		system("pause>null");
+		Sleep(700);
 		system("cls");
 		MenuFun3();
 	}
@@ -229,19 +376,9 @@ Drob Drob::Div(Drob d1, Drob d2)
 	{
 		gotoxy(25, 19);
 		cout << "На ноль делить нельзя";
-		system("pause>null");
+		Sleep(700);
 		system("cls");
 		MenuFun4();		
 	}	
 	
 }
-
-//void Drob::SetCh(int ch1)
-//{
-//	ch = ch1;
-//}
-//
-//void Drob::SetZn(int zn1)
-//{
-//	zn = zn1;
-//}

@@ -63,9 +63,27 @@ void MenuFun1()
 //-----------------------------------------------------------------------------------------------
 void MenuFun2()
 {
-	system("cls");
+	system("cls"); //clear the screen.
+
+	gotoxy(25, 9);
+	cout << "Вычетание дробей\n";
+
 	gotoxy(25, 10);
-	cout << "You have selected menu option (#2)" << endl;
+	cout << "Введите числитель и знаменатель первой дроби\n";
+
+	d1.HandInit();
+
+	gotoxy(25, 15);
+	cout << "Введите числитель и знаменатель второй дроби\n";
+
+	d2.HandInit();
+
+	d = d.Diff(d1, d2);
+
+	gotoxy(25, 19);
+
+	d.print();
+
 	_getch();
 	system("cls");
 }
