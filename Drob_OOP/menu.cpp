@@ -1,13 +1,15 @@
 ﻿#include"Header.h"
 
-
-
+Drob d1;
+Drob d2;
+Drob d;
 
 /*******************************************
  * Menu using the arrow keys from keyboard *
  *      By: Osama Farah . Amman-Jordan     *
  *         osama_f2005@hotmail.com         *
  *******************************************/
+
 
 
 
@@ -37,9 +39,16 @@ void MenuFun1()
 	system("cls"); //clear the screen.
 	gotoxy(25, 10);
 	
-	Drob::HandInit();
-
-	Drob::Sum(d1, d2); - НЕ МОГУ ВЫЗВАТЬ ФУНКЦИЮ. Не могу передать параметры в MenuFun1()
+	cout << "Введите числитель и знаменатель первой дроби\n";
+	
+	d1.HandInit();
+	gotoxy(25, 15);
+	cout << "Введите числитель и знаменатель второй дроби\n";
+	d2.HandInit();
+	
+	d = d.Sum(d1, d2);
+	gotoxy(25, 19);
+	d.print();
 
 	_getch(); // we can use getch like pause (whitout assigning the return value to a variable).
 	system("cls");

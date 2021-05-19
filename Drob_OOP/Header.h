@@ -8,7 +8,6 @@
 using namespace std;
 
 
-
 class Drob
 {
 private:
@@ -37,7 +36,7 @@ public:
 	void Init(int ch0, int zn0);
 
 	//ручной ввод значений дроби
-	static void HandInit();
+	void HandInit();
 
 	//деструктор
 	//~Drob();
@@ -48,7 +47,7 @@ public:
 	//void SetZn(int zn1);	
 
 
-	static Drob Sum(Drob d1, Drob d2);
+	Drob Sum(Drob d1, Drob d2);
 	Drob Diff(Drob d1, Drob d2);
 	Drob Mult(Drob d1, Drob d2);
 	Drob Div(Drob d1, Drob d2);
@@ -69,3 +68,6 @@ void MenuFun4();
 
 void ExitOption(); 
 //-----------------------------------------------------------------------------------------------
+
+//inline Drob d1;
+//inline Drob d2;
