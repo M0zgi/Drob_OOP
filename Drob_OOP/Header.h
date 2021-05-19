@@ -14,6 +14,7 @@ private:
 
 	int ch;
 	int zn;
+	int chast; // целая часть
 
 	//ф-кция сокращения дроби
 	void NOD();

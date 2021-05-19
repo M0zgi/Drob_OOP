@@ -48,6 +48,7 @@ void MenuFun1()
 	
 	d = d.Sum(d1, d2);
 	gotoxy(25, 19);
+	
 	d.print();
 
 	_getch(); // we can use getch like pause (whitout assigning the return value to a variable).

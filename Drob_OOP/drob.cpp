@@ -5,6 +5,78 @@
 
 void Drob::NOD()
 {
+	
+	Drob a;
+
+	a.ch = ch;
+	a.zn = zn;
+
+	if (ch > 0)
+	{
+		//поиск Нод (только для положительных дробей)
+		while (a.ch != a.zn)
+		{
+			if (a.ch > a.zn)
+			{
+				int tmp = a.ch;
+				a.ch = a.zn;
+				a.zn = tmp;
+			}
+			a.zn = a.zn - a.ch;
+		}
+		//сокращение дроби по общему наибольшему делителю
+		ch /= a.ch;
+		zn /= a.zn;
+	}
+
+	if (ch < 0)
+	{
+		a.ch *= -1;
+		//поиск Нод (только для отрицательных дробей)
+		while (a.ch != a.zn)
+		{
+			if (a.ch > a.zn)
+			{
+				int tmp = a.ch;
+				a.ch = a.zn;
+				a.zn = tmp;
+			}
+			a.zn = a.zn - a.ch;
+		}
+		//сокращение дроби по общему наибольшему делителю
+
+		
+		ch /= a.ch;
+		zn /= a.zn;
+		a.ch *= -1;
+		
+	}
+
+	//поиск и выделение целой части дроби для отрицательной дроби
+	if (ch < 0)
+	{
+		ch *= -1;
+		if (ch > zn || ch == zn)
+		{
+			chast = ch / zn;
+			ch = ch % zn;
+		}
+
+		ch *= -1;
+
+		
+	}
+	//поиск и выделение целой части дроби для положительной дроби
+
+	if (ch > 0)
+	{
+		if (ch > zn || ch == zn)
+		{
+			chast = ch / zn;
+			ch = ch % zn;
+		}
+	}
+
 
 }
 
@@ -16,10 +88,42 @@ Drob::Drob(int ch0, int zn0)
 
 void Drob::print()
 {
+
+	
+
 	cout << "--------------------------------------------" << endl;
-	cout << "                                            " << ch << endl;
-	cout << "                                    Ответ: ---\n";
-	cout << "                                            " << zn;
+
+	if (chast > 0 && ch > 0)
+	{
+		cout << "                                            " << ch << endl;
+		cout << "                                  Ответ: " << chast << " ---\n";
+		cout << "                                            " << zn;
+
+	}
+
+	else if (chast > 0 && ch < 0)
+	{
+		cout << "                                             " << ch - (ch * 2)<< endl;
+		cout << "                                 Ответ: - " << chast << " ---\n";
+		cout << "                                             " << zn;
+	}
+	else if (ch < 0)
+	{
+		cout << "                                            " << ch - (ch * 2) << endl;
+		cout << "                                  Ответ: -"  << " ---\n";
+		cout << "                                            " << zn;
+	}
+		
+		
+	else if (ch != 0 && zn != 0)
+	{
+
+		cout << "                                            " << ch << endl;
+		cout << "                                    Ответ: ---\n";
+		cout << "                                            " << zn;
+	}
+
+	
 
 }
 
@@ -31,20 +135,11 @@ void Drob::Init(int ch0, int zn0)
 
 void Drob::HandInit()
 {
-	//cout << "Введите числитель и знаменатель первой дроби\n";
 	cout << "                                            ";
 	cin >> ch;
 	cout << "                                           ---\n";
 	cout << "                                            ";
-	cin >> zn;
-	//cout << "Введите числитель и знаменатель второй дроби\n";
-
-	/*cout << " ";
-	cin >> ch;
-	cout << "---\n";
-	cout << " ";
-	cin >> zn;*/
-	
+	cin >> zn;	
 }
 
 //Drob::~Drob()
@@ -65,11 +160,10 @@ Drob Drob::Sum(Drob d1, Drob d2)
 {
 	Drob d;
 
-	//cout << d1.ch << d1.zn << endl;
-	//cout << d2.ch << d2.zn << endl;
+	d.ch = d1.ch * d2.zn + d1.zn * d2.ch;
+	d.zn = d1.zn * d2.zn;
 
-	d.ch = d1.ch + 2;
-	d.zn = d2.zn + 3;	
+	d.NOD();
 
 	return d;
 }
