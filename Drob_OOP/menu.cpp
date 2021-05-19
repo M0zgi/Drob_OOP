@@ -51,7 +51,7 @@ void MenuFun1()
 	
 	d.print();
 
-	_getch(); // we can use getch like pause (whitout assigning the return value to a variable).
+	_getch(); 
 	system("cls");
 }
 //-----------------------------------------------------------------------------------------------
@@ -98,12 +98,12 @@ void ChangeCursorStatus(bool Visible)
 	if (Visible)
 	{
 		c->bVisible = TRUE;
-		c->dwSize = 0;//(0) is invild so the default value is set
+		c->dwSize = 0;
 	}
 	else
 	{
 		c->bVisible = FALSE;
-		c->dwSize = 1;//it must be assigned to a valid value
+		c->dwSize = 1;
 	}
 
 	SetConsoleCursorInfo(h, c);
