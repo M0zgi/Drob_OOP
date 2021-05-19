@@ -21,14 +21,7 @@ private:
 
 	//ф-кция проверки знаменателя на 0
 
-	bool CheckZero()
-	{
-		if (zn == 0)
-			return false;
-		
-		if (zn != 0)
-			return true;
-	}
+	bool CheckZero();	
 
 public:
 

@@ -73,6 +73,16 @@ void Drob::NOD()
 	}
 }
 
+bool Drob::CheckZero()
+{	
+		if (zn == 0)
+			return false;
+
+		if (zn != 0)
+			return true;	
+}
+
+
 Drob::Drob(int ch0, int zn0)
 {
 	ch = ch0;
