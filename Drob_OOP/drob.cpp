@@ -79,7 +79,7 @@ bool Drob::CheckZero()
 			return false;
 
 		if (zn != 0)
-			return true;	
+			return true;		
 }
 
 
@@ -98,6 +98,14 @@ void Drob::print()
 		cout << "                                            " << ch << endl;
 		cout << "                                  Ответ: " << chast << " ---\n";
 		cout << "                                            " << zn;
+	}
+
+	else if (ch == 0 && zn == 0 && chast == 0)
+	{
+
+		
+		cout << "             В результате операции знаментатель дроби равен 0. На ноль делить нельзя";
+		
 	}
 
 	else if (chast > 0 && ch < 0)
@@ -185,12 +193,10 @@ Drob Drob::Sum(Drob d1, Drob d2)
 
 	else
 	{
-		gotoxy(25, 19);
-		cout << "На ноль делить нельзя";
-		Sleep(700);
-		system("cls");
-		
-		MenuFun1();
+		d.ch = 0;
+		d.zn = 0;
+		d.chast = 0;
+		return d;
 	}
 }
 
@@ -214,11 +220,10 @@ Drob Drob::Diff(Drob d1, Drob d2)
 
 		else
 		{
-			gotoxy(25, 19);
-			cout << "На ноль делить нельзя";
-			Sleep(700);
-			system("cls");
-			MenuFun2();
+			c.ch = 0;
+			c.zn = 0;
+			c.chast = 0;
+			return c;
 		}
 	}
 
@@ -256,11 +261,10 @@ Drob Drob::Diff(Drob d1, Drob d2)
 
 		else
 		{
-			gotoxy(25, 19);
-			cout << "На ноль делить нельзя";
-			Sleep(700);
-			system("cls");
-			MenuFun2();
+			c.ch = 0;
+			c.zn = 0;
+			c.chast = 0;
+			return c;
 		}
 	}
 
@@ -282,11 +286,10 @@ Drob Drob::Diff(Drob d1, Drob d2)
 
 		else
 		{
-			gotoxy(25, 19);
-			cout << "На ноль делить нельзя";
-			Sleep(700);
-			system("cls");
-			MenuFun2();
+			c.ch = 0;
+			c.zn = 0;
+			c.chast = 0;
+			return c;
 		}
 	}
 
@@ -312,11 +315,10 @@ Drob Drob::Diff(Drob d1, Drob d2)
 
 		else
 		{
-			gotoxy(25, 19);
-			cout << "На ноль делить нельзя";
-			Sleep(700);
-			system("cls");
-			MenuFun2();
+			c.ch = 0;
+			c.zn = 0;
+			c.chast = 0;
+			return c;
 		}
 	}
 
@@ -336,11 +338,10 @@ Drob Drob::Diff(Drob d1, Drob d2)
 
 		else
 		{
-			gotoxy(25, 19);
-			cout << "На ноль делить нельзя";
-			Sleep(700);
-			system("cls");
-			MenuFun2();
+			c.ch = 0;
+			c.zn = 0;
+			c.chast = 0;
+			return c;
 		}
 	}
 }
@@ -360,11 +361,10 @@ Drob Drob::Mult(Drob d1, Drob d2)
 
 	else
 	{
-		gotoxy(25, 19);
-		cout << "На ноль делить нельзя";
-		Sleep(700);
-		system("cls");
-		MenuFun3();
+		d.ch = 0;
+		d.zn = 0;
+		d.chast = 0;
+		return d;
 	}
 }
 
@@ -384,11 +384,10 @@ Drob Drob::Div(Drob d1, Drob d2)
 	
 	else
 	{
-		gotoxy(25, 19);
-		cout << "На ноль делить нельзя";
-		Sleep(700);
-		system("cls");
-		MenuFun4();		
-	}	
+		d.ch = 0;
+		d.zn = 0;
+		d.chast = 0;
+		return d;
+	}
 	
 }
